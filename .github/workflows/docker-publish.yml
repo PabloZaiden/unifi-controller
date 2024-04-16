@@ -35,13 +35,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # only check this on main
+      - name: Check if there is a newer version
+        if: github.ref == 'refs/heads/main'
+        id: check-latest
+        run: ./check-latest.sh
+
       - name: Get unifi version
         id: version
         run: echo "UNIFI_VERSION=$(cat version.txt)" >> "$GITHUB_OUTPUT"
 
       - name: print unifi version
         run: echo "UNIFI_VERSION=${{ steps.version.outputs.UNIFI_VERSION }}"
-
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer

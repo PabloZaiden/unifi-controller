@@ -11,4 +11,14 @@ RUN ./install-unifi-controller.sh
 
 ADD ./entrypoint.sh /entrypoint.sh
 
+EXPOSE 8443
+EXPOSE 38473/udp
+EXPOSE 10001/udp
+EXPOSE 8080
+EXPOSE 1900/udp
+EXPOSE 8843
+EXPOSE 8880
+EXPOSE 6789
+EXPOSE 5514/udp
+
 ENTRYPOINT ["/entrypoint.sh"]

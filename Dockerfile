@@ -1,4 +1,4 @@
-FROM --platform=amd64 ubuntu:focal
+FROM ubuntu:focal
 ARG UNIFI_VERSION
 
 ENV DEBIAN_FRONTEND=noninteractive
